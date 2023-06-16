@@ -1,0 +1,22 @@
+apiVersion: kpack.io/v1alpha2
+kind: Image
+metadata:
+  name: llm-imgprocessor
+spec:
+  tag: ${DATA_E2E_REGISTRY_USERNAME}/llm-image-processor
+  builder:
+    kind: ClusterBuilder
+    name: full
+  source:
+    git:
+      url: https://github.com/agapebondservant/llm-image-processing-app-argopipeline-step.git
+      revision: main
+  cache:
+    volume:
+      size: 8G
+  build:
+    env:
+      - name: "MLFLOW_TRACKING_URI"
+        value: http://mlflow.${DATA_E2E_BASE_URL}
+      - name: "MLFLOW_S3_ENDPOINT_URL"
+        value: http://minio-ml.${DATA_E2E_BASE_URL}
