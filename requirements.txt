@@ -54,7 +54,6 @@ acryl-datahub[datahub-rest]
 datahub
 torch
 transformers
-langchain
 tiktoken
 webdriver-manager
 greenplum-python
