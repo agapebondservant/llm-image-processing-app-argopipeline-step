@@ -59,3 +59,4 @@ webdriver-manager
 greenplum-python
 torchvision
 accelerate
+tf-keras
