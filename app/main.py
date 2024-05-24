@@ -67,7 +67,7 @@ try:
                                    entry_point,
                                    version=environment_name,
                                    env_manager='local',
-                                   parameters={'model-stage': stage, 'model-repo': model_repo})
+                                   parameters={'model-stage': stage})
 
         submitted_run_metadata = MlflowClient().get_run(submitted_run.run_id)
 
