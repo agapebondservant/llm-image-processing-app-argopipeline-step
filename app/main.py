@@ -53,14 +53,13 @@ try:
     stage = get_cmd_arg_or_env_var("mlflow_stage")
     environment_name = get_cmd_arg_or_env_var("environment_name")
     experiment_name = get_cmd_arg_or_env_var('experiment_name')
-    model_repo = get_cmd_arg_or_env_var('model_repo')
     os.environ['MLFLOW_EXPERIMENT_NAME'] = experiment_name
     os.environ['MLFLOW_S3_ENDPOINT_URL'] = get_cmd_arg('mlflow_s3_uri') or get_env_var('MLFLOW_S3_ENDPOINT_URL')
     os.environ['MLFLOW_TRACKING_URI'] = get_cmd_arg('mlflow_tracking_uri') or get_env_var('MLFLOW_TRACKING_URI')
     os.environ["TF_USE_LEGACY_KERAS"] = "1"
 
     logging.info(
-        f"Printing the arguments...git_repo={git_repo},experiment_name={experiment_name},entry_point={entry_point},stage={stage},model_repo={model_repo}")
+        f"Printing the arguments...git_repo={git_repo},experiment_name={experiment_name},entry_point={entry_point},stage={stage}")
 
     with mlflow.start_run(nested=True) as active_run:
         os.environ['MLFLOW_RUN_ID'] = get_root_run(active_run_id=active_run.info.run_id, experiment_names=[experiment_name])
