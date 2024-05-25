@@ -68,4 +68,3 @@ ort-nightly
 onnxruntime-genai
 --extra-index-url=https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-genai/pypi/simple/
 --pre
-.
